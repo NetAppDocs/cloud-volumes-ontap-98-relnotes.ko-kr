@@ -1,0 +1,154 @@
+---
+sidebar: sidebar 
+permalink: reference-new.html 
+keywords: 'what"s new, new, features, release notes, enhancements' 
+summary: Cloud Volumes ONTAP 9.8에는 몇 가지 새로운 기능과 향상된 기능이 포함되어 있습니다. 
+---
+= Cloud Volumes ONTAP 9.8의 새로운 기능
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP 9.8에는 몇 가지 새로운 기능과 향상된 기능이 포함되어 있습니다.
+
+최신 버전의 Cloud Manager에는 추가 기능과 개선 사항도 포함되어 있습니다. 를 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html["Cloud Manager 릴리즈 노트"^] 를 참조하십시오.
+
+
+
+== 9.8 GA(2021년 1월 5일)
+
+Cloud Volumes ONTAP 9.8의 GA(General Availability) 릴리스가 출시되었습니다. GA 릴리스에는 버그 수정이 포함되어 있습니다. Cloud Manager에서 기존 9.8 RC1 및 9.7 시스템을 이번 릴리즈로 업그레이드하라는 메시지가 표시됩니다.
+
+
+
+== Cloud Manager 3.9.2(2021년 1월 4일)에 도입된 변경 사항
+
+Cloud Manager 3.9.2 릴리스에는 AWS 아웃포스트, Google Cloud의 대용량 디스크 등 Cloud Volumes ONTAP의 여러 가지 향상된 기능이 포함되어 있습니다.
+
+로 이동합니다 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/whats-new.html["Cloud Manager 릴리즈 노트"^] 3.9.2 릴리스에 대한 자세한 내용은 을 참조하십시오.
+
+
+
+== E48s_v3, HA 쌍 지원(2020년 12월 21일)
+
+E48s_v3 VM 유형은 이제 Microsoft Azure의 Cloud Volumes ONTAP HA 쌍에서 지원됩니다.
+
+
+
+== 지원되는 EC2 인스턴스(2020년 12월 11일)
+
+9.8 릴리즈, C4, M4 및 R4 EC2 인스턴스 유형부터는 새로운 Cloud Volumes ONTAP 시스템에서 지원되지 않습니다. 기존 9.8 시스템을 이러한 인스턴스 유형 중 하나로 변경하는 것도 지원되지 않습니다.
+
+C4, M4 또는 R4 인스턴스 유형에서 실행 중인 기존 Cloud Volumes ONTAP 9.7 시스템이 있는 경우에도 9.8 릴리스로 업그레이드할 수 있습니다.
+
+
+
+== 9.8 RC1 업데이트(2020년 11월 12일)
+
+단일 노드 시스템과 마찬가지로, Cloud Manager에서는 C5, M5 또는 R5 인스턴스 유형을 사용할 때 AWS의 새로운 9.8 HA 쌍 구축에 코어 디스크를 할당합니다. 코어 디스크는 지원되는 인스턴스 유형 간에 전환할 수 있는 기능을 확장하고, 문제가 발생할 때 시스템에서 코어 파일을 수집하는 기능을 향상시키며, 향후 더 큰 인스턴스 유형을 지원할 수 있는 기능을 제공합니다.
+
+코어 디스크는 540GiB의 범용 SSD(GP2)입니다.
+
+
+NOTE: 이 코어 디스크가 추가됨에 따라 이러한 인스턴스 유형을 사용하는 시스템에서 데이터 디스크가 한 개 더 적게 지원됩니다. link:reference-limits-aws.html["AWS의 스토리지 제한에 대해 자세히 알아보십시오"].
+
+
+
+== 9.8 RC1(2020년 11월 8일)
+
+Cloud Volumes ONTAP 9.8 RC1은 현재 AWS, Azure 및 Google 클라우드 플랫폼에서 제공됩니다. Azure에서 9.8 RC1은 현재 업그레이드에만 사용할 수 있습니다.
+
+에 도입된 기능 외에도 https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP 9.8"^]이 Cloud Volumes ONTAP 릴리스에는 다음이 포함됩니다.
+
+* <<High-availability pairs in Google Cloud>>
+* <<Fixes for Azure NIC detach events and maintenance events>>
+* <<High write speed with HA pairs in AWS and Azure>>
+* <<Support for 24 storage VMs in AWS>>
+* <<Core disk for single node systems in AWS>>
+
+
+
+
+=== Google Cloud의 고가용성 쌍
+
+Cloud Volumes ONTAP HA(고가용성) 쌍이 이제 Google Cloud에서 제공되고 있습니다.
+
+HA 2노드는 클라우드 환경에서 장애가 발생할 경우 엔터프라이즈급 안정성과 지속적인 운영을 제공합니다. AWS의 Cloud Volumes ONTAP와 마찬가지로, Google Cloud의 HA 쌍에는 데이터가 서로 동기식으로 미러링되는 2개의 Cloud Volumes ONTAP 노드와, 스토리지 테이크오버 및 반환을 지원하는 통신 채널을 제공하는 중재자 인스턴스가 포함됩니다.
+
+보기 link:reference-configs-gcp.html["지원되는 구성"] 및 link:reference-limits-gcp.html["보관 제한"].
+
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-ha-google-cloud.html["Google Cloud의 HA 쌍에 대해 자세히 알아보십시오"^].
+
+
+
+=== Azure NIC 분리 이벤트 및 유지 보수 이벤트 수정
+
+이 릴리스는 Cloud Volumes ONTAP가 Azure 고정 이벤트, Azure NIC 분리 이벤트 및 기타 Azure 유지 보수 작업(예: 가상 기능 취소)을 처리하는 방법에 대해 몇 가지 향상된 기능을 제공합니다. Cloud Volumes ONTAP는 이 릴리스에서 내결함성을 더욱 높이고 서비스 중단 또는 클러스터 성능 저하 가능성을 줄여 Azure 이벤트를 보다 원활하게 처리합니다.
+
+
+
+=== AWS와 Azure의 HA 쌍을 통한 빠른 쓰기 속도
+
+이제 Cloud Volumes ONTAP는 특정 인스턴스 또는 VM 유형을 사용할 때 AWS와 Azure에서 HA 쌍을 포함한 빠른 쓰기 속도를 지원합니다. 워크로드에 빠른 쓰기 성능이 필요하고 계획되지 않은 시스템 운영 중단 시 데이터 손실 위험을 감수할 수 있는 경우 빠른 쓰기 속도가 가장 좋습니다.
+
+쓰기 속도를 선택하기 전에 일반 설정과 높은 설정의 차이점과 빠른 쓰기 속도를 사용할 때의 위험 및 권장 사항을 이해해야 합니다.
+
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-write-speed.html["자세한 정보"^].
+
+
+
+=== AWS에서 최대 24개의 스토리지 VM 지원
+
+C5, M5 또는 R5 인스턴스 유형을 사용하고 자체 라이센스를 가져올 때 AWS에서 최대 24개의 스토리지 VM이 Cloud Volumes ONTAP에서 지원됩니다. 24개의 스토리지 VM 중 DR(재해 복구)에 대해 최대 12개를 구성할 수 있습니다.
+
+사용하는 EC2 인스턴스 유형에 따라 이 제한을 줄일 수 있습니다.
+
+기본적으로 Cloud Volumes ONTAP와 함께 제공되는 첫 번째 스토리지 VM 외에 각 additional_data-serving_storage VM에 대해 애드온 라이센스가 필요합니다. SVM 애드온 라이센스를 받으려면 어카운트 팀에 문의하십시오.
+
+DR(재해 복구)에 대해 구성하는 스토리지 VM에는 추가 라이센스(무료)가 필요하지 않지만 스토리지 VM 제한에 대해 카운트됩니다.
+
+link:reference-limits-aws.html["스토리지 VM 제한에 대해 자세히 알아보십시오"].
+
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-managing-svms-aws.html["AWS에서 Cloud Volumes ONTAP용 데이터 서비스 스토리지 VM을 생성하는 방법에 대해 알아보십시오"].
+
+
+
+=== AWS의 단일 노드 시스템용 핵심 디스크입니다
+
+C5, M5 또는 R5 인스턴스 유형을 사용할 때 Cloud Manager는 이제 AWS의 새로운 9.8개 단일 노드 배포에 코어 디스크를 할당합니다. 코어 디스크는 지원되는 인스턴스 유형 간에 전환할 수 있는 기능을 확장하고, 문제가 발생할 때 시스템에서 코어 파일을 수집하는 기능을 향상시키며, 향후 더 큰 인스턴스 유형을 지원할 수 있는 기능을 제공합니다.
+
+코어 디스크는 540GiB의 범용 SSD(GP2)입니다.
+
+
+NOTE: 이 코어 디스크가 추가됨에 따라 이러한 인스턴스 유형을 사용하는 단일 노드 시스템에서는 데이터 디스크 수가 1개 줄어듭니다. link:reference-limits-aws.html["AWS의 스토리지 제한에 대해 자세히 알아보십시오"].
+
+
+
+== Cloud Manager Connector의 필수 버전입니다
+
+새로운 Cloud Volumes ONTAP 9.8 시스템을 구축하고 기존 시스템을 버전 9.8로 업그레이드하려면 Cloud Manager Connector에서 버전 3.9.0 이상을 실행해야 합니다.
+
+
+
+== 노트 업그레이드
+
+* Cloud Volumes ONTAP 업그레이드는 Cloud Manager에서 완료해야 합니다. System Manager 또는 CLI를 사용하여 Cloud Volumes ONTAP를 업그레이드해서는 안 됩니다. 이렇게 하면 시스템 안정성에 영향을 줄 수 있습니다.
+* 9.7 릴리즈에서 Cloud Volumes ONTAP 9.8로 업그레이드할 수 있습니다. Cloud Manager에서 기존 Cloud Volumes ONTAP 9.7 시스템을 9.8 릴리즈로 업그레이드하라는 메시지가 표시됩니다.
++
+http://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-updating-ontap-cloud.html["Cloud Manager에서 알림을 받을 때 업그레이드하는 방법에 대해 알아보십시오"^].
+
+* 단일 노드 시스템을 업그레이드하면 시스템이 최대 25분 동안 오프라인 상태로 전환되고 이 동안 I/O가 중단됩니다.
+* HA 2노드 업그레이드는 무중단으로 I/O를 업그레이드할 수 있으며 이 무중단 업그레이드 프로세스 중에 각 노드가 동시 업그레이드되어 클라이언트에 I/O를 계속 제공합니다.
+
+
+
+
+=== C4, M4 및 R4 인스턴스 유형
+
+9.8 릴리스, C4, M4 및 R4 인스턴스 유형부터 새로운 Cloud Volumes ONTAP 시스템에서는 지원되지 않습니다. C4, M4 또는 R4 인스턴스 유형에서 실행 중인 기존 Cloud Volumes ONTAP 시스템이 있는 경우에도 이 릴리즈로 업그레이드할 수 있습니다.
+
+C5, M5 또는 R5 인스턴스 제품군의 인스턴스 유형으로 변경하는 것이 좋습니다.
