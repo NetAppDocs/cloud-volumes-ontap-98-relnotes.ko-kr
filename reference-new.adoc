@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP 9.8에는 몇 가지 새로운 기능과 향상된 
 ---
 = Cloud Volumes ONTAP 9.8의 새로운 기능
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
