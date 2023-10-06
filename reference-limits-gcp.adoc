@@ -41,7 +41,7 @@ Cloud Volumes ONTAP 시스템의 최대 시스템 용량은 라이센스에 따�
 | PAYGO 프리미엄 | 368TB 
 
 
-| 노드 기반 라이센스 | 라이센스당 368TB 
+| 노드 기반 라이센스 | PiB 2개(여러 개의 라이센스 필요) 
 
 
 | 용량 기반 라이센스 | 2 PiB 
@@ -78,13 +78,13 @@ Cloud Volumes ONTAP 시스템의 최대 시스템 용량은 라이센스에 따�
 
 | 디스크 및 콜드 데이터를 Google Cloud Storage 버킷으로 계층화하여 시스템 용량 극대화 | 라이센스에 따라 다릅니다. 위의 표를 참조하십시오. 
 |===
-^1^ 이 제한은 Google Cloud Platform의 가상 머신 제한값에 의해 정의됩니다.
+이 제한은 Google Cloud에서 가상 머신 제한에 의해 정의됩니다.
 
 
 
 == 애그리게이트 제한
 
-Cloud Volumes ONTAP는 Google Cloud Platform 디스크를 _aggregate_로 그룹화합니다. Aggregate는 볼륨에 스토리지를 제공합니다.
+Cloud Volumes ONTAP는 Google Cloud 디스크를 _aggregates_로 그룹화합니다. Aggregate는 볼륨에 스토리지를 제공합니다.
 
 [cols="2*"]
 |===
@@ -122,7 +122,9 @@ Cloud Volumes ONTAP는 Google Cloud Platform 디스크를 _aggregate_로 그룹�
 | 논리적 스토리지 | 매개 변수 | 제한 
 
 
-| * SVM(스토리지 가상 시스템) * | 최대 Cloud Volumes ONTAP 수(HA 쌍 또는 단일 노드) | 재해 복구에 사용되는 1개의 SVM 및 1개의 대상 SVM 소스 SVM이 중단되었을 경우 데이터 액세스를 위해 대상 SVM을 활성화할 수 있습니다. ^1^ 하나의 데이터 서비스 SVM은 전체 Cloud Volumes ONTAP 시스템(HA 쌍 또는 단일 노드)에 걸쳐 있습니다. 
+| * SVM(스토리지 가상 시스템) * | 최대 Cloud Volumes ONTAP 수(HA 쌍 또는 단일 노드) | 재해 복구에 사용되는 1개의 SVM 및 1개의 대상 SVM 소스 SVM이 중단될 경우, 데이터 액세스를 위해 대상 SVM을 활성화할 수 있습니다. ^1^
+
+단일 데이터 서비스 SVM은 전체 Cloud Volumes ONTAP 시스템(HA 쌍 또는 단일 노드)을 포괄합니다. 
 
 
 .2+| * 파일 * | 최대 크기 | 16TB 
